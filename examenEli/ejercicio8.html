@@ -13,14 +13,21 @@
         fetch(url)
         .then(respuesta => respuesta.json())
         .then(datos => {
-            datos.forEach(dato => {
-                console.log(dato);
+            datos.categories.forEach(dato => {
                 const li = document.createElement("li");
                 li.textContent = `${dato.strCategory}`;
                 ul.append(li);
             });
         })
+        
         document.body.append(ul);
+        const btns = document.querySelectorAll("li");
+        console.log(btns);
+        btns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                console.log(btn);
+            })
+        })
 
     </script>
 </body>
