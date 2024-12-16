@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const img = document.createElement("img");
+        const btn = document.createElement("button");
+        let caca = true;
+        btn.textContent = "ocultar/mostrar";
+        img.src = "https://picsum.photos/200/300";
+        btn.addEventListener("click", () => {
+            if (caca) {
+                img.style.display = "none";
+                caca =false;
+            }else{
+                img.style.display = "block";
+                caca =true;
+            }
+        })
+
+        document.body.append(img, btn);
+    </script>
+</body>
+</html>
