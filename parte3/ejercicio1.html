@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Guardar y recuperar un nombre de usuario usando localStorage
+        // Crea un formulario con un campo para que el usuario ingrese su nombre. Al
+        // enviar el formulario, guarda el nombre en el localStorage. Si el usuario vuelve a
+        // cargar la página, muestra su nombre guardado.
+
+        let usu = localStorage.getItem("usu");
+        const h1 = document.createElement("h1");
+        h1.textContent = `${usu}`;
+        document.body.append(h1);
+        const form = document.createElement("form");
+        const nombre = document.createElement("input");
+        const enviar = document.createElement("input");
+        nombre.type = "text";
+        nombre.placeholder = "Introduce el nombre de usuario...";
+        enviar.type = "submit";
+        enviar.value = "enviar";
+        form.append(nombre,enviar);
+        document.body.append(form);
+        form.addEventListener("submit", () => {
+            // localStorage.setItem("dato", JSON.stringify(miArray));
+            let user = nombre.value.trim();
+            if (user != "" || user != null) {
+                localStorage.setItem("usu", user);
+            }
+        })
+    </script>
+</body>
+</html>
