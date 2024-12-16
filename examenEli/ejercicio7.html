@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = ["hola"];
+        const ul = document.createElement("ul");
+        const añadir = document.createElement("input");
+        const eliminar = document.createElement("input");
+        const text = document.createElement("input");
+        text.type = "text";
+        text.placeholder = "introduce palabra...";
+        añadir.type = "submit";
+        añadir.value = "añadir"
+        eliminar.type = "submit";
+        eliminar.value = "elimnar";
+
+        array.forEach(el => {
+            const li = document.createElement("li");
+            li.textContent=`${el}`;
+            ul.append(li);
+        });
+
+        document.body.append(ul,text,añadir,eliminar);
+
+        añadir.addEventListener("click", () => {
+            let palabra = text.value.trim();
+            if(palabra != null){
+                ul.innerHTML="";
+                array.push(palabra);
+                array.forEach(el => {
+                    const li = document.createElement("li");
+                    li.textContent=`${el}`;
+                    ul.append(li);
+                });
+            }
+        })
+
+        eliminar.addEventListener("click", () => {
+            ul.innerHTML="";
+            array.pop();
+            array.forEach(el => {
+                const li = document.createElement("li");
+                li.textContent=`${el}`;
+                ul.append(li);
+            });
+        })
+        
+
+    </script>
+</body>
+</html>
