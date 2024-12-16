@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+    </form>
+    <script>
+        // 2. Sumar los números impares hasta un número ingresado
+        // Solicita al usuario un número y muestra la suma de todos los números impares
+        // desde 1 hasta el número ingresado. Usa un bucle for para recorrer los números.
+
+        const submit = document.createElement("input");
+        const number = document.createElement("input");
+        const form = document.querySelector("form");
+
+        number.type = "number";
+        number.placeholder = "Introduce un numero";
+        submit.type = "submit";
+        submit.value = "enviar";
+        form.append(number,submit);
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (number.value != "" ||number.value != null) { 
+                for (let i = 0; i < number.value; i++) {
+                    let cont=0;
+                    for (let j = 0; j < i; j++) {
+                        if(i%j==0) cont++;
+                    }
+                    if(cont<=2) document.body.innerHTML+=`${i}<br>`; 
+                }   
+            }
+        })
+    </script>
+</body>
+</html>
