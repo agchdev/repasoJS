@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 9. Crear una lista de películas con botones para eliminar
+        // Crea un array con algunos nombres de películas. Muestra estos nombres en una
+        // lista no ordenada en HTML, y agrega un botón al lado de cada película. Al hacer
+        // clic en el botón, se eliminará esa película de la lista.
+
+        const peliculas = ["La vida es bella", "La sociedad de la nieve", "Shrek", "Terminator"];
+        const ol = document.createElement("ol");
+
+        peliculas.forEach(el => {
+            const li = document.createElement("li");
+            li.textContent = `${el}   `;
+            const btn = document.createElement("button");
+            btn.textContent = `X`;
+            li.append(btn)
+            ol.append(li);
+        })
+
+        document.body.append(ol);
+
+        const btns = document.querySelectorAll("button");
+        btns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const li = btn.parentElement;
+                li.remove();
+            })
+        })
+    </script>
+</body>
+</html>
