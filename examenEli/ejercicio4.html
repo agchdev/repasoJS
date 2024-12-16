@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -13,13 +18,7 @@
         btn.textContent = "ocultar/mostrar";
         img.src = "https://picsum.photos/200/300";
         btn.addEventListener("click", () => {
-            if (caca) {
-                img.style.display = "none";
-                caca =false;
-            }else{
-                img.style.display = "block";
-                caca =true;
-            }
+            img.classList.toggle('hidden');
         })
 
         document.body.append(img, btn);
