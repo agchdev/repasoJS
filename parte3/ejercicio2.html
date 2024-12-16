@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2. Contador que se guarda en localStorage
+        // Crea un contador con un botón para incrementar el valor. Cada vez que el
+        // contador se incremente, guarda el valor actual en localStorage. Si el usuario
+        // recarga la página, el contador debe retomar el valor guardado.
+
+        const btn = document.createElement("button");
+        let cont = localStorage.getItem("cont") || 0;
+        btn.textContent = `Click: ${cont}`;
+        document.body.append(btn);
+        btn.addEventListener("click", () => {
+            cont++;
+            btn.textContent = `Click: ${cont}`;
+            localStorage.setItem("cont", cont);
+        })
+    </script>
+</body>
+</html>
