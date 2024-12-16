@@ -17,8 +17,7 @@
             li.textContent = `${fruta}`;
             ul.append(li);
         });
-        document.body.append(ul);
-        document.body.append(btn);
+        document.body.append(ul,btn);
 
         btn.addEventListener("click", () => {
             const li = document.querySelectorAll("li")
