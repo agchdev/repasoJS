@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 10. Crear un formulario para capturar nombre y edad, y mostrar los datos en una tabla
+        // Crea un formulario con campos para el nombre y la edad de una persona.
+        // Cuando el usuario envíe el formulario, muestra estos datos en una tabla HTML.
+
+        const form = document.createElement("form");
+        const text = document.createElement("input");
+        text.type = "text";
+        text.placeholder = "Introduce un texto...";
+        const number = document.createElement("input");
+        number.type = "number";
+        number.placeholder = "Introduce tu edad...";
+        const submit = document.createElement("input");
+        submit.type = "submit";
+        submit.value = "enviar";
+        form.append(text, number, submit);
+        document.body.append(form);
+        const table = document.createElement("table");
+        const tr1 = document.createElement("tr");
+        tr1.innerHTML = `<th>NOMBRE</th><th>EDAD</th>`;
+        table.append(tr1);
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let nombre = text.value;
+            let edad = number.value;
+            const tr2 = document.createElement("tr");
+            tr2.innerHTML = `<td>${nombre}</td><td>${edad}</td>`;
+            table.append(tr2);
+            document.body.append(table);
+        })
+    </script>
+</body>
+</html>
