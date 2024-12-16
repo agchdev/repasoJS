@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 3. Guardar un array en localStorage y mostrarlo
+        // Crea un formulario donde el usuario pueda agregar elementos a una lista (por
+        // ejemplo, nombres de tareas). Guarda el array en localStorage y muestra el
+        // contenido de la lista cada vez que el usuario recargue la página.
+
+        const array = JSON.parse(localStorage.getItem("tasks") ) || [];
+        const ul = document.createElement("ul");
+        array.forEach(task => {
+            const li = document.createElement("li");
+            li.textContent = `${task}`;
+            ul.append(li);
+        });
+        document.body.append(ul);
+        const form = document.createElement("form");
+        const tarea = document.createElement("input");
+        tarea.type = "text";
+        tarea.placeholder = "Introduce una nueva tarea";
+        const submit = document.createElement("input");
+        submit.type = "submit";
+        submit.value = "enviar";
+        form.append(tarea, submit);
+        document.body.append(form);
+        form.addEventListener("submit", () => {
+            let palabra = tarea.value.trim();
+            if(palabra != "" || palabra != null){
+                array.push(palabra);
+                localStorage.setItem("tasks", JSON.stringify(array));
+            }
+        })
+    </script>
+</body>
+</html>
