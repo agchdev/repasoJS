@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 4. Llamada a una API para obtener datos y mostrarlos en una lista
+        // Usa fetch para hacer una solicitud GET a una API pública
+        // (https://jsonplaceholder.typicode.com/posts). Muestra los datos recibidos (como título
+        // y cuerpo) en una lista HTML.
+        const url = "https://jsonplaceholder.typicode.com/posts";
+
+        fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            datos.forEach(dato => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h2>${dato.title}</h2>
+                    <p>${dato.body}</p>
+                `;
+                document.body.append(div);
+            });
+        })
+
+    </script>
+</body>
+</html>
