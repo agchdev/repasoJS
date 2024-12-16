@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 6. Mostrar y filtrar datos de una API con fetch
+        // Usa fetch para obtener datos de una API (por ejemplo, la API de
+        // https://jsonplaceholder.typicode.com/posts). Muestra los títulos de los posts en una
+        // lista. Luego, agrega un campo de búsqueda que filtre los resultados basados en
+        // el título del post.
+
+        const url = "https://jsonplaceholder.typicode.com/posts";
+        const ul = document.createElement("ul");
+        const text = document.createElement("input");
+        text.type = "text";
+        document.body.append(text);
+
+        text.addEventListener("input", (e) => {
+            ul.innerHTML = ``;  
+            palabra = e.target.value.trim();
+            console.log(palabra);
+            if(palabra != null){
+                fetch(url)
+                .then(respuesta => respuesta.json())
+                .then(datos => {
+                    datos.forEach(dato => {
+                        if(dato.title.includes(palabra)){
+                            const li = document.createElement("li");
+                            li.textContent = `${dato.title}`;
+                            console.log(dato);
+                            ul.append(li);
+                        }
+                    });
+                    document.body.append(ul);
+                })
+            }
+            
+
+        })
+        
+    </script>
+</body>
+</html>
