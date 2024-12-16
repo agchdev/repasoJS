@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 8. Mostrar una tabla con los elementos de un array de objetos
+        // Tienes un array de objetos con propiedades como "nombre", "edad" y "ciudad".
+        // Usa JavaScript para mostrar estos datos en una tabla HTML, donde cada objeto
+        // ocupará una fila.
+        const persona = [
+            {
+                "nombre" : "Alejandro",
+                "edad" : 22,
+                "ciudad" : "Granada"
+            },
+            {
+                "nombre" : "Manuel",
+                "edad" : 19,
+                "ciudad" : "Granada"
+            },
+            {
+                "nombre" : "Juanca",
+                "edad" : 25,
+                "ciudad" : "Granada"
+            },
+            {
+                "nombre" : "Juande",
+                "edad" : 24,
+                "ciudad" : "Granada"
+            },
+        ]
+        
+        let primera = true;
+
+        const table = document.createElement("table");
+        for (const key of persona) {
+            const tr = document.createElement("tr");
+            for (const el in key) {
+                if(primera){
+                    tr.innerHTML += `<th>${el}</th>`;
+                }else{
+                    tr.innerHTML += `<td>${key[el]}</td>`;
+                }
+            }
+            primera = false;
+            table.append(tr);
+        }
+
+        document.body.append(table);
+    </script>
+</body>
+</html>
