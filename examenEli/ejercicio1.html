@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio
+        const form = document.createElement("form");
+        const nombre = document.createElement("input");
+        const edad = document.createElement("input");
+        const enviar = document.createElement("input");
+        const table = document.createElement("table");
+
+        nombre.type = "text";
+        nombre.placeholder = "Introduce el nombre...";
+        edad.type = "number";
+        edad.placeholder = "Introduce tu edad...";
+        enviar.type = "submit";
+        enviar.value = "enviar";
+
+        form.append(nombre,edad,enviar);
+        document.body.append(form);
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let usu = nombre.value.trim();
+            let age = edad.value;
+
+            if(usu != null){
+                table.innerHTML = `
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>EDAD</th>    
+                    </tr>
+                    <tr>
+                        <td>${usu}</td>
+                        <td>${age}</td>
+                    </tr>
+                `;
+            }
+
+            document.body.append(table);
+        })
+
+    </script>
+</body>
+</html>
