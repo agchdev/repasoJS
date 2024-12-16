@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 6. Filtrar palabras de un array que empiecen con una letra determinada
+    // Dado un array de palabras, crea un programa que filtre aquellas que empiecen
+    // con una letra proporcionada por el usuario.
+
+        let array = ["calabaza", "pecera", "pantalon", "silla", "sacapuntas"];
+        const text = document.createElement("input");
+        text.type = "text";
+        text.placeholder = "escribe...";
+
+        const ul = document.createElement("ul");
+
+        array.forEach(el => {
+            const li = document.createElement("li");
+            li.textContent = `${el}`;
+            ul.append(li);
+        });
+
+        document.body.append(text);
+
+        text.addEventListener("input", (e) => {
+            ul.innerHTML = ``;
+            e.preventDefault();
+            let palabra = e.target.value.trim();
+            console.log(palabra)
+            array.forEach(el => {
+                if(el.includes(palabra)){
+                    const li = document.createElement("li");
+                    li.textContent = `${el}`;
+                    ul.append(li);
+                }
+            });
+            document.body.append(ul);
+        })
+    
+    </script>
+</body>
+</html>
