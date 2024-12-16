@@ -13,21 +13,30 @@
         fetch(url)
         .then(respuesta => respuesta.json())
         .then(datos => {
+            console.log(datos)
             datos.categories.forEach(dato => {
                 const li = document.createElement("li");
                 li.textContent = `${dato.strCategory}`;
                 ul.append(li);
             });
+            document.body.append(ul);
+            // Ahora que los <li> están en el DOM, seleccionarlos y añadir eventos
+            const btns = document.querySelectorAll("li");
+            const img = document.createElement("img");
+            btns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    let palabra = btn.textContent;
+                    datos.categories.forEach(dato => {
+                        if(palabra==dato.strCategory){
+                            img.src = dato.strCategoryThumb;
+                            document.body.append(img);
+                        }
+                    });
+                });
+            });
         })
+
         
-        document.body.append(ul);
-        const btns = document.querySelectorAll("li");
-        console.log(btns);
-        btns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                console.log(btn);
-            })
-        })
 
     </script>
 </body>
