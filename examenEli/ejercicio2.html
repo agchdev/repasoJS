@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        array = ["manzana", "pera", "sandía", "platano"];
+        const ul = document.createElement("ul");
+
+        array.forEach(fruta => {
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+            btn.textContent = "X";
+            li.textContent = `${fruta}`;
+            li.append(btn);
+            ul.append(li);
+        });
+        document.body.append(ul);
+
+        const btns = document.querySelectorAll("button");
+        btns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const li = btn.parentElement;
+                li.remove();
+            })
+        })
+    </script>
+</body>
+</html>
